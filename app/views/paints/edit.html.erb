@@ -1,0 +1,21 @@
+<%= form_for @paint, url: edit_paint_path(@paint.id) do |f| %>
+
+   <% if @paint.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@paintt.errors.count, "error") %></h2>
+ 
+    <ul>
+    <% @paint.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+  <%= f.text_field :name %><br />
+  <%= f.text_area :description, size: "60x12" %><br />
+  <%= f.submit "Create" %>
+<% end %>
+<% if @paint.user_id == current_user.id %>
+<p><%= link_to "edit", edit_paint_path(@paint.id) %> |
+<%= link_to "delete", paint_path(@paint.id), method: :delete %><br /></p>
+<% end %>
