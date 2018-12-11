@@ -30,7 +30,7 @@ class PaintsController < ApplicationController
       @paint = Paint.find_by(params[:id])
   	if @paint.update(paint_params)
       flash[:notice] = "Paint successfully updated"
-      redirect_to paint_path(@post.id)
+      redirect_to root_path
     else
       flash[:error] = "Error"
       render 'edit'
@@ -46,7 +46,7 @@ class PaintsController < ApplicationController
 
 private
   def paint_params
-  	params.require(:paint).permit(:name, :description, :price, :picture)
+  	params.require(:paint).permit(:user_id, :name, :description, :price, :picture, :category)
   end
 end
 

@@ -1,16 +1,15 @@
 <center><h2>Hi! If you looking for a masterpiece, this site is special for you!</br>
 Select a category </h2><center>
- <% if @paints == [] %>
-    <p> Add new picture</p>
-<% else %>
     <% @paints.each do |paint| %>
-  <%= link_to "Portraits",  %>
 
 <p align="left">	<%= image_tag(paint.picture_url, size: "150x200")%><br>
-  
        	<b><%= paint.name %></b><br />
        <b><%= paint.description %></b><br />
-       <%= paint.price %></br>
+       Price: <%= paint.price %></br>
+       Category: <%= paint.category %></br>
+       <%=link_to "Buy", paints_path%>
+       <% if paint.user_id == current_user.id %></br>
        <%= link_to "Read More", paint_path(paint.id) %></p>
     <% end %>
-<% end %>
+    
+    <%end%>

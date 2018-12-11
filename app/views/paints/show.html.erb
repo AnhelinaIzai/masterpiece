@@ -1,6 +1,8 @@
 <%= form_for @paint, url: paint_path(@paint.id) do |f| %>
-  <%= f.text_field :name %><br />
-  <%= f.text_area :description, size: "60x12" %><br />
+  Name: <%= f.text_field :name %><br />
+  Description: <%= f.text_area :description, size: "60x12" %><br />
+   Price: <%= f.text_field :price %><br />
+   Category: <%= f.text_field :category %><br />
   <%= f.submit "Create" %>  |
-  <%= link_to "delete", paint_path(@paint.id), method: :delete %><br /></p>
+  <%= link_to "Delete", paint_path(@paint.id), method: :delete %><br /></p>
 <% end %>
