@@ -16,7 +16,8 @@
   <p>Name: <%= f.text_field :name %><br />
   Description: <%= f.text_area :description, size: "60x10" %><br />
   Price: <%= f.text_field :price%></br>
-   Category: <%= f.text_field :category %><br />
   <%= f.file_field :picture %>
+  <%= f.label :all_tags%>
+  <%= raw paint.tags.map(&:name).map{ |t| link_to t, tag_path(t)}.join(' ')%><br />
   <%= f.submit "Add" %>
 <% end %>

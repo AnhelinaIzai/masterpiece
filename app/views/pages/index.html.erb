@@ -9,7 +9,6 @@ Select a category </h2><center>
        Category: <%= paint.category %></br>
        <%=link_to "Buy", paints_path%>
         <% if user_signed_in? && paint.user_id == current_user.id%></br>
-       <%= link_to "Read More", paint_path(paint.id) %></p>
+       <%= link_to "Read More", edit_paint_path(paint.id) %></p>
     <% end %>
-    
     <%end%>
