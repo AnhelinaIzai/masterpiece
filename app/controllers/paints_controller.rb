@@ -9,12 +9,7 @@ class PaintsController < ApplicationController
 
   def create
   	@paint = current_user.paints.build(paint_params)
-     if @paint.save
-      flash[:notice] = "Paint successfully add"
-      redirect_to root_path
-    else
-      flash[:error] = "Error. Try again"
-      render 'new'
+       redirect_to paint_path(@paint)
     end  
   end
 
@@ -48,5 +43,3 @@ private
   def paint_params
   	params.require(:paint).permit(:user_id, :name, :description, :price, :picture, :category)
   end
-end
-
